@@ -23,12 +23,17 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset(
+              'asset/logo.png',
+              width: 150,
+              height: 150,
+            ),
             SizedBox(
               width: 300,
               child: TextFormField(
                 controller: inputNama,
                 decoration: const InputDecoration(
-                  fillColor: Color.fromARGB(255, 160, 159, 157),
+                  fillColor: Color.fromARGB(255, 207, 207, 206),
                   hintText: 'Masukkan Nama',
                   filled: true,
                   border: OutlineInputBorder(

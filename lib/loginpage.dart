@@ -36,6 +36,11 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset(
+              'asset/logo.png',
+              width: 150,
+              height: 150,
+            ),
             const Text(
               'LOGIN',
               style: TextStyle(
