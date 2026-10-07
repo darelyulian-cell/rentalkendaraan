@@ -1,53 +1,54 @@
 import 'package:flutter/material.dart';
 
-class MyHomePage extends StatefulWidget {
-  final String namaUser;
-  const MyHomePage({super.key, required this.namaUser});
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  final TextEditingController inputNama = TextEditingController();
+  void handleLogout(BuildContext context) {
+    // Kembali ke halaman Login ('/') dan hapus riwayat halaman sebelumnya
+    Navigator.pushReplacementNamed(context, '/');
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Selamat Datang, ${widget.namaUser}'),
-        backgroundColor: const Color.fromARGB(145, 152, 152, 153),
+        title: const Text('Home Page'),
+        backgroundColor: Colors.grey[700],
+        actions: [
+          // Tombol Logout di pojok kanan atas (AppBar)
+          IconButton(
+            icon: const Icon(Icons.logout),
+            tooltip: 'Logout',
+            onPressed: () => handleLogout(context),
+          ),
+        ],
       ),
-      backgroundColor: const Color.fromARGB(245, 228, 230, 229),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              'assets/logo.png',
-              width: 500,
-              height: 300,
-            ),
-            SizedBox(
-              width: 300,
-              child: TextFormField(
-                controller: inputNama,
-                decoration: const InputDecoration(
-                  fillColor: Color.fromARGB(255, 207, 207, 206),
-                  hintText: 'Masukkan Nama',
-                  filled: true,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(40)),
-                  ),
-                ),
+            const Text(
+              'Selamat Datang di Homepage!',
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {
-                print('Input Nama: ${inputNama.text}');
-              },
-              child: const Text('Submit'),
+            const SizedBox(height: 30),
+
+            // Tombol Logout di tengah halaman
+            ElevatedButton.icon(
+              onPressed: () => handleLogout(context),
+              icon: const Icon(Icons.logout),
+              label: const Text('Logout'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.redAccent,
+                foregroundColor: Colors.white,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 12,
+                ),
+              ),
             ),
           ],
         ),
