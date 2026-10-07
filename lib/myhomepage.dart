@@ -10,8 +10,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  // 1. Inisialisasi TextEditingController
   final TextEditingController inputNama = TextEditingController();
 
+  // 2. Best Practice: Hapus controller saat widget dibuang dari memory
   @override
   void dispose() {
     inputNama.dispose();
@@ -31,6 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              // Container untuk memberikan batasan lebar dan gaya pada TextField
               Container(
                 width: 250,
                 color: const Color.fromARGB(255, 91, 92, 94),
@@ -44,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 16), // Jarak antara TextField dan Button
               ElevatedButton(
                 onPressed: () {
                   print(inputNama.text);
