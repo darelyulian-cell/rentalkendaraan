@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+  final String namaUser;
+  const MyHomePage({super.key, required this.namaUser});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -9,68 +10,39 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final TextEditingController inputNama = TextEditingController();
-  final TextEditingController inputPassword = TextEditingController();
-
-  void handleLogin() {
-    print('=== DATA LOGIN ===');
-    print('Username : ${inputNama.text}');
-    print('Password : ${inputPassword.text}');
-    print('==================');
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(185, 93, 120, 122),
+      appBar: AppBar(
+        title: Text('Selamat Datang, ${widget.namaUser}'),
+        backgroundColor: const Color.fromARGB(145, 0, 50, 145),
+      ),
+      backgroundColor: const Color.fromARGB(245, 19, 222, 124),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'LOGIN',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-            const SizedBox(height: 24),
-            
-            // Input Username
             SizedBox(
               width: 300,
-              child: TextField(
+              child: TextFormField(
                 controller: inputNama,
-                style: const TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
-                  hintText: 'Username',
-                  hintStyle: TextStyle(color: Colors.white70),
-                  border: OutlineInputBorder(),
+                  fillColor: Colors.orange,
+                  hintText: 'Masukkan Nama',
+                  filled: true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(40)),
+                  ),
                 ),
               ),
             ),
             const SizedBox(height: 16),
-
-            // Input Password
-            SizedBox(
-              width: 300,
-              child: TextField(
-                controller: inputPassword,
-                obscureText: true,
-                style: const TextStyle(color: Colors.white),
-                decoration: const InputDecoration(
-                  hintText: 'Password',
-                  hintStyle: TextStyle(color: Colors.white70),
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            const SizedBox(height: 24),
-
-            // Tombol Login
             ElevatedButton(
-              onPressed: handleLogin,
-              child: const Text('Login'),
+              onPressed: () {
+                print('Input Nama: ${inputNama.text}');
+              },
+              child: const Text('Submit'),
             ),
           ],
         ),
