@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'myhomepage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -9,90 +8,62 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final TextEditingController inputUsername = TextEditingController();
-  final TextEditingController inputPassword = TextEditingController();
-
-  void handleLogin() {
-    // Cetak ke terminal
-    print('=== DATA LOGIN ===');
-    print('Username : ${inputUsername.text}');
-    print('Password : ${inputPassword.text}');
-    print('==================');
-
-    // Pindah ke file myhomepage.dart
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (context) => MyHomePage(namaUser: inputUsername.text),
-      ),
-    );
-  }
+  // Pembuatan Variabel Yang Akan Dipakai
+  TextEditingController inputNama = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(245, 142, 143, 142),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              'assets/logo.png',
-              width: 500,
-              height: 300,
+      appBar: AppBar(
+        title: const Text("Nama App Kalian"),
+        backgroundColor: const Color.fromARGB(0, 50, 145, 145),
+      ),
+      backgroundColor: const Color.fromARGB(245, 19, 222, 124),
+      body: Column(
+        children: [
+          Center(
+            child: Image(
+              image: const AssetImage('assets/logo.png'),
+              width: 200,
+              height: 200,
             ),
-            const Text(
-              'LOGIN',
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-            const SizedBox(height: 24),
-            
-            // Input Username
-            SizedBox(
+          ),
+          Center(
+            child: Container(
               width: 300,
               child: TextFormField(
-                controller: inputUsername,
+                // Dekorasi untuk TextFormField
                 decoration: const InputDecoration(
-                  fillColor: Color.fromARGB(255, 207, 207, 206),
-                  hintText: 'Masukkan Username',
+                  fillColor: Color.fromARGB(255, 92, 89, 83),
+                  hintText: 'Masukan Nama Kamu',
                   filled: true,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(40)),
                   ),
                 ),
+                // kontroler untuk ...
+                controller: inputNama,
+                // Ketika Dikirim nanti
+                onFieldSubmitted: (values) {
+                  // Logic
+                  inputNama.text = values;
+                },
               ),
             ),
-            const SizedBox(height: 12),
+          ),
+          // untuk kasih jarak antar widget
+          const Padding(padding: EdgeInsets.all(16)),
 
-            // Input Password
-            SizedBox(
-              width: 300,
-              child: TextFormField(
-                controller: inputPassword,
-                obscureText: true,
-                decoration: const InputDecoration(
-                  fillColor: Color.fromARGB(255, 207, 207, 206),
-                  hintText: 'Masukkan Password',
-                  filled: true,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(40)),
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 20),
-
-            // Tombol Login
-            ElevatedButton(
-              onPressed: handleLogin,
-              child: const Text('Login'),
-            ),
-          ],
-        ),
+          // Tombol
+          ElevatedButton(
+            child: const Text("Tampilkan Nama"),
+            onPressed: () {
+              // Logic
+              print(inputNama.text);
+              Navigator.pushReplacementNamed(context, "/home");
+            },
+          ),
+        ],
       ),
     );
   }
