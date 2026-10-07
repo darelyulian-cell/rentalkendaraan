@@ -49,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               // Gambar logo.png dari folder asset/
               Image.asset(
-                'asset/logo.png',
+                'assets/logo.png',
                 width: 180,
                 height: 180,
                 errorBuilder: (context, error, stackTrace) {
