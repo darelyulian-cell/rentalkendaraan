@@ -17,7 +17,13 @@ class _LoginPageState extends State<LoginPage> {
     String username = inputUsername.text.trim();
     String password = inputPassword.text.trim();
 
-    // a. Kalau username / password kosong -> Tidak bisa routing
+    // Cetak ke terminal
+    print('=== DATA LOGIN ===');
+    print('Username : $username');
+    print('Password : $password');
+    print('==================');
+
+    // a. Pengecekan: kalau username ATAU password kosong, tidak bisa berpindah halaman
     if (username.isEmpty || password.isEmpty) {
       setState(() {
         errorMessage = 'Username dan Password tidak boleh kosong!';
@@ -25,17 +31,11 @@ class _LoginPageState extends State<LoginPage> {
       return;
     }
 
-    // b. Kalau username = admin dan password = 12345 -> Pindah ke homepage & tidak bisa kembali
-    if (username == 'admin' && password == '12345') {
-      setState(() {
-        errorMessage = '';
-      });
-      Navigator.pushReplacementNamed(context, '/home');
-    } else {
-      setState(() {
-        errorMessage = 'Username atau Password salah!';
-      });
-    }
+    // b. Jika dua-duanya sudah diisi (bebas), langsung pindah ke homepage
+    setState(() {
+      errorMessage = '';
+    });
+    Navigator.pushReplacementNamed(context, '/home');
   }
 
   @override
@@ -47,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Gambar logo.png dari folder asset/
+              // Mengambil gambar dari folder assets
               Image.asset(
                 'assets/logo.png',
                 width: 180,
@@ -108,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 12),
 
-              // Pesan Peringatan
+              // Pesan error jika ada yang kosong
               if (errorMessage.isNotEmpty)
                 Text(
                   errorMessage,
