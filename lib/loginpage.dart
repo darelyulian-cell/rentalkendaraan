@@ -52,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
               child: TextFormField(
                 controller: inputUsername,
                 decoration: const InputDecoration(
-                  fillColor: Color.fromARGB(255, 141, 140, 139),
+                  fillColor: Color.fromARGB(255, 207, 207, 206),
                   hintText: 'Masukkan Username',
                   filled: true,
                   border: OutlineInputBorder(
@@ -70,7 +70,7 @@ class _LoginPageState extends State<LoginPage> {
                 controller: inputPassword,
                 obscureText: true,
                 decoration: const InputDecoration(
-                  fillColor: Color.fromARGB(255, 150, 149, 147),
+                  fillColor: Color.fromARGB(255, 207, 207, 206),
                   hintText: 'Masukkan Password',
                   filled: true,
                   border: OutlineInputBorder(
