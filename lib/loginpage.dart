@@ -17,12 +17,6 @@ class _LoginPageState extends State<LoginPage> {
     String username = inputUsername.text.trim();
     String password = inputPassword.text.trim();
 
-    // Cetak ke terminal
-    print('=== DATA LOGIN ===');
-    print('Username : $username');
-    print('Password : $password');
-    print('==================');
-
     // a. Kalau username / password kosong -> Tidak bisa routing
     if (username.isEmpty || password.isEmpty) {
       setState(() {
@@ -31,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
       return;
     }
 
-    // b. Kalau username = admin dan password = 12345 -> Pindah ke homepage & tidak bisa kembali ke login
+    // b. Kalau username = admin dan password = 12345 -> Pindah ke homepage & tidak bisa kembali
     if (username == 'admin' && password == '12345') {
       setState(() {
         errorMessage = '';
@@ -53,9 +47,9 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // d. Memanggil ui ux.png dari asset/img/
+              // Gambar logo.png dari folder asset/img/
               Image.asset(
-                'asset/logo.png',
+                'asset/img/logo.png',
                 width: 180,
                 height: 180,
                 errorBuilder: (context, error, stackTrace) {
@@ -83,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: TextFormField(
                   controller: inputUsername,
                   decoration: const InputDecoration(
-                    prefixIcon: Icon(Icons.person), // c. Icon muncul
+                    prefixIcon: Icon(Icons.person),
                     fillColor: Color.fromARGB(255, 207, 207, 206),
                     hintText: 'Masukkan Username',
                     filled: true,
@@ -102,7 +96,7 @@ class _LoginPageState extends State<LoginPage> {
                   controller: inputPassword,
                   obscureText: true,
                   decoration: const InputDecoration(
-                    prefixIcon: Icon(Icons.lock), // c. Icon muncul
+                    prefixIcon: Icon(Icons.lock),
                     fillColor: Color.fromARGB(255, 207, 207, 206),
                     hintText: 'Masukkan Password',
                     filled: true,
