@@ -55,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               // d. Memanggil ui ux.png dari asset/img/
               Image.asset(
-                'asset/img/ui ux.png',
+                'asset/logo.png',
                 width: 180,
                 height: 180,
                 errorBuilder: (context, error, stackTrace) {
