@@ -47,9 +47,9 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Gambar logo.png dari folder asset/img/
+              // Gambar logo.png dari folder asset/
               Image.asset(
-                'asset/img/logo.png',
+                'asset/logo.png',
                 width: 180,
                 height: 180,
                 errorBuilder: (context, error, stackTrace) {
