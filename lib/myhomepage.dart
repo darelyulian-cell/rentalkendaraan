@@ -18,10 +18,10 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("rentalkendaraan"),
-        backgroundColor: Color.fromRGBO(0, 50, 145, 145),
+        backgroundColor: Color.fromRGBO(178, 179, 180, 1),
       ),
       //Color.fromRGBO( opacity, red, gren, blue)
-      backgroundColor: Color.fromARGB(245, 19, 222, 124),
+      backgroundColor: Color.fromARGB(245, 165, 163, 163),
       body: Column(
         children: [
           Center(
@@ -30,7 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: TextFormField(
                 // Dekorasi untuk TextFormField
                 decoration: InputDecoration(
-                  fillColor: Colors.orange,
+                  fillColor: const Color.fromARGB(255, 121, 120, 118),
                   hintText: 'Masukan Nama Kamu',
                   filled: true,
                   border: OutlineInputBorder(
