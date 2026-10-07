@@ -10,13 +10,14 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // 1. Inisialisasi TextEditingController
+  // Controller untuk nama dan password
   final TextEditingController inputNama = TextEditingController();
+  final TextEditingController inputPassword = TextEditingController();
 
-  // 2. Best Practice: Hapus controller saat widget dibuang dari memory
   @override
   void dispose() {
     inputNama.dispose();
+    inputPassword.dispose();
     super.dispose();
   }
 
@@ -33,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Container untuk memberikan batasan lebar dan gaya pada TextField
+              // Input Nama
               Container(
                 width: 250,
                 color: const Color.fromARGB(255, 91, 92, 94),
@@ -47,12 +48,34 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ),
-              const SizedBox(height: 16), // Jarak antara TextField dan Button
+
+              const SizedBox(height: 16),
+
+              // Input Password
+              Container(
+                width: 250,
+                color: const Color.fromARGB(255, 91, 92, 94),
+                child: TextField(
+                  controller: inputPassword,
+                  obscureText: true, // Sembunyikan karakter password
+                  style: const TextStyle(color: Colors.white),
+                  decoration: const InputDecoration(
+                    hintText: 'Masukkan Password',
+                    hintStyle: TextStyle(color: Colors.white70),
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 16),
+
+              // Tombol Login
               ElevatedButton(
                 onPressed: () {
-                  print(inputNama.text);
+                  print('Nama: ${inputNama.text}');
+                  print('Password: ${inputPassword.text}');
                 },
-                child: const Text('Submit'),
+                child: const Text('Login'),
               ),
             ],
           ),
