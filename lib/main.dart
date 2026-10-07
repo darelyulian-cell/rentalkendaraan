@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
       
       ),
-      home: const MyHomePage(title: 'rentalkendaraan'),
+      home: const MyHomePage(title : 'rentalkendaraan'),
     );
   }
 }
