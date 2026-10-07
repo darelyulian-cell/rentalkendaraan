@@ -24,9 +24,9 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'asset/logo.png',
-              width: 150,
-              height: 150,
+              'assets/logo.png',
+              width: 200,
+              height: 200,
             ),
             SizedBox(
               width: 300,

@@ -38,8 +38,8 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             Image.asset(
               'assets/logo.png',
-              width: 150,
-              height: 150,
+              width: 200,
+              height: 200,
             ),
             const Text(
               'LOGIN',
