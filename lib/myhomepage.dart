@@ -16,6 +16,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: const Text('rentalkendaraan'),),
         backgroundColor: const Color.fromARGB(185, 93, 120, 122),
+        body: Column()
     );
   }
 }
