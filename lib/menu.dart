@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
               // Logout kembali ke halaman Login
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => const LoginPage()),
+                MaterialPageRoute(builder: (context) => const MyHomePage(title: 'Rental Kendaraan')),
               );
             },
           ),

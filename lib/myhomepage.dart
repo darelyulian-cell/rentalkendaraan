@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'menu.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class MyHomePage extends StatefulWidget {
+  final String title;
+  const MyHomePage({super.key, required this.title});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _MyHomePageState extends State<MyHomePage> {
   final TextEditingController inputNama = TextEditingController();
   final TextEditingController inputPassword = TextEditingController();
 
@@ -24,17 +25,10 @@ class _LoginPageState extends State<LoginPage> {
     String password = inputPassword.text;
 
     if (nama.isNotEmpty && password.isNotEmpty) {
-      // Langsung pindah ke halaman HomePage
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (context) => HomePage(namaUser: nama),
-        ),
-      );
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Isi nama dan password terlebih dahulu!'),
         ),
       );
     }
@@ -44,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Login Rental Kendaraan"),
+        title: Text(widget.title),
         backgroundColor: const Color.fromARGB(145, 0, 50, 145),
       ),
       backgroundColor: const Color.fromARGB(245, 19, 222, 124),
@@ -85,9 +79,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(16),
-          ),
+          const SizedBox(height: 16),
           ElevatedButton(
             onPressed: handleLogin,
             child: const Text("Login"),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'myhomepage.dart';
-import 'menu.dart'; 
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
         useMaterial3: true,
       ),
-      home: const LoginPage(),
+      home: MyHomePage(title: 'rentalkendaraan'), // Kata const dihapus & ditambahkan title
     );
   }
 }
