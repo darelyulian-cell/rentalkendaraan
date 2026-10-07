@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
+import 'menu.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  // Controller untuk nama dan password
+class _LoginPageState extends State<LoginPage> {
   final TextEditingController inputNama = TextEditingController();
   final TextEditingController inputPassword = TextEditingController();
 
@@ -21,65 +19,80 @@ class _MyHomePageState extends State<MyHomePage> {
     super.dispose();
   }
 
+  void handleLogin() {
+    String nama = inputNama.text;
+    String password = inputPassword.text;
+
+    if (nama.isNotEmpty && password.isNotEmpty) {
+      // Langsung pindah ke halaman HomePage
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => HomePage(namaUser: nama),
+        ),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Isi nama dan password terlebih dahulu!'),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('rentalkendaraan'),
+        title: const Text("Login Rental Kendaraan"),
+        backgroundColor: const Color.fromARGB(145, 0, 50, 145),
       ),
-      backgroundColor: const Color.fromARGB(185, 93, 120, 122),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // Input Nama
-              Container(
-                width: 250,
-                color: const Color.fromARGB(255, 91, 92, 94),
-                child: TextField(
-                  controller: inputNama,
-                  style: const TextStyle(color: Colors.white),
-                  decoration: const InputDecoration(
-                    hintText: 'Masukkan Nama',
-                    hintStyle: TextStyle(color: Colors.white70),
-                    border: OutlineInputBorder(),
+      backgroundColor: const Color.fromARGB(245, 19, 222, 124),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child: SizedBox(
+              width: 300,
+              child: TextFormField(
+                controller: inputNama,
+                decoration: const InputDecoration(
+                  fillColor: Colors.orange,
+                  hintText: 'Masukkan Nama Kamu',
+                  filled: true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(40)),
                   ),
                 ),
               ),
-
-              const SizedBox(height: 16),
-
-              // Input Password
-              Container(
-                width: 250,
-                color: const Color.fromARGB(255, 91, 92, 94),
-                child: TextField(
-                  controller: inputPassword,
-                  obscureText: true, // Sembunyikan karakter password
-                  style: const TextStyle(color: Colors.white),
-                  decoration: const InputDecoration(
-                    hintText: 'Masukkan Password',
-                    hintStyle: TextStyle(color: Colors.white70),
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 16),
-
-              // Tombol Login
-              ElevatedButton(
-                onPressed: () {
-                  print('Nama: ${inputNama.text}');
-                  print('Password: ${inputPassword.text}');
-                },
-                child: const Text('Login'),
-              ),
-            ],
+            ),
           ),
-        ),
+          const SizedBox(height: 12),
+          Center(
+            child: SizedBox(
+              width: 300,
+              child: TextFormField(
+                controller: inputPassword,
+                obscureText: true,
+                decoration: const InputDecoration(
+                  fillColor: Colors.orange,
+                  hintText: 'Masukkan Password',
+                  filled: true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(40)),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.all(16),
+          ),
+          ElevatedButton(
+            onPressed: handleLogin,
+            child: const Text("Login"),
+          ),
+        ],
       ),
     );
   }
