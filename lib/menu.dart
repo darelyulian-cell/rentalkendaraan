@@ -41,7 +41,7 @@ class MenuPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFC8C8C8), // Background abu-abu sesuai Figma
+      backgroundColor: const Color(0xFFC8C8C8),
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
