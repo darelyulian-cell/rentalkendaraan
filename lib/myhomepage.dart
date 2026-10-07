@@ -15,7 +15,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('rentalkendaraan'),),
-        backgroundColor: const Color.fromARGB(188, 138, 138, 137),
+        backgroundColor: const Color.fromARGB(185, 93, 120, 122),
     );
   }
 }
