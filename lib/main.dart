@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
         useMaterial3: true,
       ),
-      home: MyHomePage(title: 'rentalkndaraan'), // Kata const dihapus & ditambahkan title
+      home: const MyHomePage(title: 'Rental Kendaraan'), // Kata const dihapus & ditambahkan title
     );
   }
 }
