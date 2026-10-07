@@ -16,9 +16,9 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Selamat Datang, ${widget.namaUser}'),
-        backgroundColor: const Color.fromARGB(145, 0, 50, 145),
+        backgroundColor: const Color.fromARGB(145, 152, 152, 153),
       ),
-      backgroundColor: const Color.fromARGB(245, 19, 222, 124),
+      backgroundColor: const Color.fromARGB(245, 228, 230, 229),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -28,7 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: TextFormField(
                 controller: inputNama,
                 decoration: const InputDecoration(
-                  fillColor: Colors.orange,
+                  fillColor: Color.fromARGB(255, 160, 159, 157),
                   hintText: 'Masukkan Nama',
                   filled: true,
                   border: OutlineInputBorder(

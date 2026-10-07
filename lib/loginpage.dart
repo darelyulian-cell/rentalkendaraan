@@ -31,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(245, 19, 222, 124),
+      backgroundColor: const Color.fromARGB(245, 142, 143, 142),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -52,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
               child: TextFormField(
                 controller: inputUsername,
                 decoration: const InputDecoration(
-                  fillColor: Colors.orange,
+                  fillColor: Color.fromARGB(255, 141, 140, 139),
                   hintText: 'Masukkan Username',
                   filled: true,
                   border: OutlineInputBorder(
@@ -70,7 +70,7 @@ class _LoginPageState extends State<LoginPage> {
                 controller: inputPassword,
                 obscureText: true,
                 decoration: const InputDecoration(
-                  fillColor: Colors.orange,
+                  fillColor: Color.fromARGB(255, 150, 149, 147),
                   hintText: 'Masukkan Password',
                   filled: true,
                   border: OutlineInputBorder(
